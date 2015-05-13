@@ -37,6 +37,10 @@ public class audiojs extends Sprite {
   }
 
   public function audiojs():void {
+    // Allow JS calls from other domains
+    Security.allowDomain("*");
+    Security.allowInsecureDomain("*");
+
     this.playerInstance = root.loaderInfo.parameters.playerInstance+'.';
 
     ExternalInterface.addCallback('init', init);
